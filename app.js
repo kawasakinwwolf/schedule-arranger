@@ -93,6 +93,7 @@ app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
     const loginFrom = req.cookies.loginFrom;
+    
     // オープンリダイレクタ脆弱性対策
     if (loginFrom &&
       loginFrom.startsWith('/')) {
